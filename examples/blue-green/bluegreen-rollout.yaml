@@ -30,7 +30,7 @@ spec:
   strategy:
     blueGreen:
     #https://argo-rollouts.readthedocs.io/en/stable/features/bluegreen/#configurable-features
-      autoPromotionEnabled: false
+      # autoPromotionEnabled: false
       autoPromotionSeconds: 45
       previewReplicaCount: 2
       scaleDownDelaySeconds: 15
