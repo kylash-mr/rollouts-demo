@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: bluegreen-demo
-        image: argoproj/rollouts-demo:white
+        image: argoproj/rollouts-demo:slow-purple
         imagePullPolicy: Always
         ports:
         - name: http
@@ -29,6 +29,10 @@ spec:
             cpu: 5m
   strategy:
     blueGreen:
+    #https://argo-rollouts.readthedocs.io/en/stable/features/bluegreen/#configurable-features
       autoPromotionEnabled: false
+      autoPromotionSeconds: 45
+      previewReplicaCount: 2
+      scaleDownDelaySeconds: 15
       activeService: bluegreen-demo
       previewService: bluegreen-demo-preview
